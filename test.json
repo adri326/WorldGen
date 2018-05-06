@@ -1,0 +1,124 @@
+{
+  "grounds": [
+    {
+      "name": "gravel",
+      "max_height": 0.8,
+      "max_slope": 0.15,
+      "frequence": 0.4,
+      "noise_scale": 1,
+      "priority": 1
+    },
+    {
+      "name": "sand",
+      "max_height": 0.5,
+      "max_slope": 0.15,
+      "frequence": 0.8,
+      "noise_scale": 1
+    },
+    {
+      "name": "clay",
+      "max_height": 0.9,
+      "min_height": 0.3,
+      "max_slope": 1,
+      "frequence": 0.1,
+      "height_frequence": -0.8,
+      "noise_scale": 0.5
+    },
+    {
+      "name": "loam",
+      "max_height": 0.85,
+      "min_height": 0.3,
+      "min_slope": 0.05,
+      "max_slope": 0.8,
+      "frequence": 0.95,
+      "noise_scale": 0.6,
+      "priority": 4
+    },
+    {
+      "name": "granite",
+      "priority": 0.1
+    },
+    {
+      "name": "sandstone",
+      "frequence": -0.15,
+      "noise_scale": 1.5,
+      "min_height": 0.1,
+      "max_slope": 0.8,
+      "min_slope": 0.1,
+      "slope_frequence": 0.3
+    },
+    {
+      "name": "mud",
+      "frequence": 0.8,
+      "min_height": 0.2,
+      "min_temperature": 0.35,
+      "min_humidity": 0.6
+    }
+  ],
+  "others": [
+    {
+      "name": "ocean",
+      "max_height": 0.4
+    }
+  ],
+  "elements": [
+    {
+      "name": "grass",
+      "conditions": [
+        {
+          "others": [
+            "ocean"
+          ],
+          "probability": -100
+        },
+        {
+          "grounds": {
+            "loam": [0.25, 0.25]
+          },
+          "probability": 0.5
+        },
+        {
+          "grounds": {
+            "mud": [0.25, 0.5]
+          },
+          "probability": 0.5
+        }
+      ],
+      "layers": [0],
+      "max": 1
+    },
+    {
+      "name": "moss",
+      "conditions": [
+        {
+          "others": ["ocean"],
+          "probability": -100
+        },
+        {
+          "grounds": {"loam": [0.6, 0.2]},
+          "probability": 0.1
+        },
+        {
+          "grounds": {"mud": [0.4, 0.2]},
+          "probability": 0.1
+        }
+      ],
+      "layers": [0],
+      "max": 1
+    },
+    {
+      "name": "rock",
+      "conditions": [
+        {
+          "grounds": {
+            "granite": [0, 0.5]
+          },
+          "probability": -0.5
+        }
+      ],
+      "layers": [0],
+      "max": 1,
+      "noise_scale": 2
+    }
+  ]
+}
